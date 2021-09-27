@@ -74,6 +74,13 @@ body {
     animation-timing-function: ease-out;
 }
 
+.btn:link,
+.btn:visited{
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+}
+
 @keyframes moveInLeft {
     /*Movement on the header main text*/
     0%{
