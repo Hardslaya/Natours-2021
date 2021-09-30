@@ -4,5 +4,8 @@
   "main": "index.js",
   "author": "Javier Pérez <surtich@gmail.com>",
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "node-sass": "^6.0.1"
+  }
 }
