@@ -39,15 +39,6 @@ html {
   /* 10/16 = 0.625. This set allows users to change default font-size*/ }
 
 body {
-  font-family: "Lato", sans-serif;
-  /* font is inherit by child tags. More efficient then use the universal selector */
-  font-weight: 400;
-  /*font-size: 16px;*/
-  /* Remove . Now we are using 10px root font-size*/
-  line-height: 1.7;
-  color: #777;
-  padding: 3rem;
-  /* padding is not inherit */
   box-sizing: border-box;
   /* Not inherited */ }
 
@@ -160,3 +151,10 @@ body {
     /* relative to itself */
     text-align: center;
     /* main button is a text element. This solution is easier than using text-transform */ }
+
+.row {
+  max-width: 114rem;
+  background-color: #eee;
+  margin: 0 auto; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
