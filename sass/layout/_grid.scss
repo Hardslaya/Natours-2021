@@ -6,10 +6,20 @@
     &:not(:last-child) {
         margin-bottom: $gutter-vertical;
     }
-    .col-1-of-2 {
-        width: calc((100% - #{$gutter-horizontal}) / 2); // calc in SASS allow mix units in calculations
-        background-color: orangered;
-        float: left;
+    &:after {
+        // clearfix hack to avoid row has 0px width
+        content: "";
+        display: table;
+        clear: both;
     }
+    @include clearfix;
+}
 
+.col-1-of-2 {
+    width: calc((100% - #{$gutter-horizontal}) / 2); // calc in SASS allow mix units in calculations
+    background-color: orangered;
+    float: left;
+    &:not(:last-child) {
+        margin-right: $gutter-horizontal;
+    }
 }
