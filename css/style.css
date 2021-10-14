@@ -205,7 +205,11 @@ body {
 .card {
   perspective: 150rem;
   -moz-perspective: 150rem;
-  position: relative; }
+  position: relative;
+  /* Perspective has gone because when we use position absolute the parent(.card), has width of zero pixels.
+       Here we can not use the clearfix trick, so
+       we add the same height of their childrens */
+  height: 50rem; }
   .card__side {
     background-color: orangered;
     color: #fff;

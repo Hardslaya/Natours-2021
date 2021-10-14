@@ -2,6 +2,11 @@
     perspective: 150rem; // perspective works on child elements
     -moz-perspective: 150rem;
     position: relative;
+    /* Perspective has gone because when we use position absolute the parent(.card), has width of zero pixels.
+       Here we can not use the clearfix trick, so
+       we add the same height of their childrens */
+    height: 50rem;
+    
 
     &__side {
         background-color: orangered;
