@@ -1,3 +1,20 @@
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + :      Big desktop
+
+$breakpoint arguement choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+ORDER: Base + typography > general layout + grid > page layout > components
+
+1em = 16px. Some browers does not work with rem in media queries
+*/
 @keyframes moveInLeft {
   0% {
     opacity: 0;
@@ -31,33 +48,37 @@
 *::before {
   margin: 0;
   padding: 0;
-  box-sizing: inherit;
-  /* Force inheritance. Better practice */ }
+  box-sizing: inherit; }
 
 html {
-  font-size: 62.5%;
-  /* 10/16 = 0.625. This set allows users to change default font-size*/ }
+  font-size: 62.5%; }
+  @media only screen and (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media only screen and (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media only screen and (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
 
 body {
   box-sizing: border-box;
-  /* Not inherited */ }
+  padding: 3rem; }
+  @media only screen and (max-width: 56.25em) {
+    body {
+      padding: 0; } }
 
 body {
   font-family: "Lato", sans-serif;
-  /* font is inherit by child tags. More efficient then use the universal selector */
   font-weight: 400;
-  /*font-size: 16px;*/
-  /* Remove . Now we are using 10px root font-size*/
   line-height: 1.7;
-  color: #777;
-  padding: 3rem;
-  /* padding is not inherit */ }
+  color: #777; }
 
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
   backface-visibility: hidden;
-  /* Trick to fix the little shaking when the animation ends */
   margin-bottom: 6rem; }
   .heading-primary--main {
     display: block;
@@ -71,12 +92,18 @@ body {
     animation-delay: 3s;
     animation-iteration-count: 3;
     */ }
+    @media only screen and (max-width: 37.5em) {
+      .heading-primary--main {
+        letter-spacing: 1rem; } }
   .heading-primary--sub {
     display: block;
     font-size: 2rem;
     font-weight: 400;
     letter-spacing: 1.75rem;
     animation: moveInRight 1s ease-out; }
+    @media only screen and (max-width: 37.5em) {
+      .heading-primary--sub {
+        letter-spacing: .5rem; } }
 
 .heading-secondary {
   font-size: 3.5rem;
@@ -85,7 +112,6 @@ body {
   display: inline-block;
   background-image: linear-gradient(to right, #7ed56f, #28b485);
   -webkit-background-clip: text;
-  background-clip: transparent;
   color: transparent;
   letter-spacing: 2px;
   transition: all .2s; }

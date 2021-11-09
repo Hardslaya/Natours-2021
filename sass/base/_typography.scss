@@ -1,21 +1,16 @@
-body{
-    font-family: "Lato", sans-serif;
-    /* font is inherit by child tags. More efficient then use the universal selector */
-    font-weight: 400;
-    /*font-size: 16px;*/
-    /* Remove . Now we are using 10px root font-size*/
+body {
+    font-family: "Lato",
+        sans-serif; // font is inherit by child tags. More efficient then use the universal selector 
+    font-weight: 400; // font-size: 16px;*/ // Remove . Now we are using 10px root font-size
     line-height: 1.7;
-    color: $color-grey-dark;
-    padding: 3rem;
-    /* padding is not inherit */
+    color: $color-grey-dark;    
 }
 
 .heading-primary {
-    color: #fff;
+    color: $color-white;
     text-transform: uppercase;
 
-    backface-visibility: hidden;
-    /* Trick to fix the little shaking when the animation ends */
+    backface-visibility: hidden; // Trick to fix the little shaking when the animation ends 
     margin-bottom: 6rem;
 
     &--main {
@@ -27,6 +22,10 @@ body{
         animation-name: moveInLeft;
         animation-duration: 1s;
         animation-timing-function: ease-out;
+
+        @include respond(phone) {
+            letter-spacing: 1rem;
+        }
 
         /*
     animation-delay: 3s;
@@ -40,9 +39,14 @@ body{
         font-weight: 400;
         letter-spacing: 1.75rem;
         animation: moveInRight 1s ease-out;
+
+        @include respond(phone) {
+            letter-spacing: .5rem;
+        }
     }
 
 }
+
 
 .heading-secondary {
     font-size: 3.5rem;
@@ -51,7 +55,6 @@ body{
     display: inline-block;
     background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark); // background-color can not use gradients
     -webkit-background-clip: text; // clip background to the text
-    background-clip: transparent;
     color: transparent; // hide the text to show the backgroup clipped
     letter-spacing: 2px; // using px instead rem
     transition: all .2s;
@@ -61,7 +64,6 @@ body{
         text-shadow: .5rem 1rem 2rem rgba($color-black, .2);
     }
 }
-
 .heading-tertiary {
     font-size: $default-font-size;
     font-weight: 700;
